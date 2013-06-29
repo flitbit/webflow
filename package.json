@@ -1,0 +1,22 @@
+{
+	"name": "webflow",
+	"version": "0.1.1",
+	"author": "Phillip Clark <phillip@flitbit.com>",
+	"description": "Utilities for building opinionated HTTP services and RESTful APIs in nodejs.",
+	"dependencies": {
+		"dbc.js": "1.0.x"
+	},
+	"devDependencies": {
+		"expect.js": "0.2.x",
+		"mocha": "1.10.x"
+	},
+	"scripts": {
+		"test": "mocha -R spec"
+	},
+	"private": true,
+	"license": "MIT",
+	"repository":
+	{ "type": "git",
+		"url": "https://github.com/flitbit/webflow"
+	}
+}
