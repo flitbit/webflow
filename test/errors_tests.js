@@ -72,11 +72,11 @@ describe('ResourceError', function() {
 				});
 
 			});
-});
+	});
 
 describe('created with arity/3', function() {
 
-	describe('the instance', function() {
+		describe('the instance', function() {
 		var err = "MoreBad"
 		, reason = "Yeah, it happened!"
 		, code = 499
