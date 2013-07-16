@@ -27,8 +27,8 @@ describe('ResourceError', function() {
 				});
 
 				it('has #httpEquivelant property of 500', function() {
-					expect(e).to.have.property('httpEquivelant');
-					expect(e.httpEquivelant).to.be(500);
+					// expect(e).to.have.property('httpEquivalent');
+					expect(e.httpEquivalent).to.be(500);
 				});
 
 				it('explains the error when converted to a string', function() {
@@ -58,8 +58,8 @@ describe('ResourceError', function() {
 				});
 
 				it('has #httpEquivelant property of 500', function() {
-					expect(e).to.have.property('httpEquivelant');
-					expect(e.httpEquivelant).to.be(500);
+					// expect(e).to.have.property('httpEquivalent');
+					expect(e.httpEquivalent).to.be(500);
 				});
 
 				it('explains the error when converted to a string', function() {
@@ -95,8 +95,8 @@ describe('created with arity/3', function() {
 		});
 
 		it('has #httpEquivelant property equal to the ctor`s thrid argument', function() {
-			expect(e).to.have.property('httpEquivelant');
-			expect(e.httpEquivelant).to.be(code);
+			// expect(e).to.have.property('httpEquivalent');
+			expect(e.httpEquivalent).to.be(code);
 		});
 
 		it('explains the error when converted to a string', function() {
