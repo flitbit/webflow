@@ -2,7 +2,7 @@
 
 var util = require('util')
 , httpSignature = require('http-signature')
-, TrustedServer = require('../').TrustedServer
+, TrustedServer = require('../../').TrustedServer
 , config = require('./trusted_server_config.json')
 ;
 

@@ -3,7 +3,7 @@
 var http = require('http')
 , log = require('winston')
 , config = require('./trusted_client_config.json')
-, TrustedClient = require('../').TrustedClient
+, TrustedClient = require('../../').TrustedClient
 ;
 
 var clientOptions = {
