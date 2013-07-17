@@ -2,22 +2,20 @@
 
 var connect = require('connect')
 , log = require('winston')
-, TrustedServer = require('../').TrustedServer
-, fs = require('fs')
+, util = require('util')
+, TrustedServerImplementation = require('./trusted_server_implementation_example')
 ;
 
-var serverOptions = {
-	log: log,
-	httpSignature: {
-		key: fs.readFileSync('./key.pem', 'ascii'),
-		cert: fs.readFileSync('./cert.pem', 'ascii')
-	}
+var options = {
+	log: log
 };
 
+var server = new TrustedServerImplementation(options);
+
 connect()
-	.use(TrustedServer(serverOptions))
+	.use(server.connect(server))
 	.use(function (req, res) {
-		log.info('Request validated');
+		server._log('info', 'Request validated');
 		res.setHeader('content-type', 'application/json');
 		res.writeHead(200);
 		res.end();

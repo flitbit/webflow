@@ -2,20 +2,24 @@
 
 var http = require('http')
 , log = require('winston')
+, config = require('./trusted_client_config.json')
 , TrustedClient = require('../').TrustedClient
-, fs = require('fs')
 ;
 
 var clientOptions = {
 	log: log,
 	baseUrl: 'http://localhost:3000',
 	httpSignature: {
-		key: fs.readFileSync('./key.pem', 'ascii'), //fs.readFileSync('./badkey.pem', 'ascii'),
-		keyId: './cert.pem'
+		key: config.keys.trustedClientExampleKey.priv,
+		keyId: 'trustedClientExampleKeyId'
 	}
 };
 
 var client = new TrustedClient(clientOptions);
 client.get({ path: '' }, function (err, res) {
-	console.log('get: '.concat(err || res));
+	if (err) {
+		console.log('error: '.concat(err));
+	} else {
+		console.log('request successful');
+	}
 });
