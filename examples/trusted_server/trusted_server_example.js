@@ -15,10 +15,19 @@ var server = new TrustedServerImplementation(options);
 connect()
 	.use(server.connect(server))
 	.use(function (req, res) {
-		server._log('info', 'Request validated');
-		res.setHeader('content-type', 'application/json');
-		res.writeHead(200);
-		res.end();
+		if (req.trustedClientId) {
+			server._log('info', 'Request from trusted client: '.concat(req.trustedClientId, '.'));
+			res.setHeader('content-type', 'application/json');
+			res.writeHead(200);
+			res.write(JSON.stringify({ authorized: req.trustedClientId }));
+			res.end();
+		} else {
+			server._log('info', 'This should never happen.');
+			res.setHeader('content-type', 'text/plain');
+			res.writeHead(500);
+			res.write('Server not properly verifying signatures');
+			res.end();
+		}
 	}).listen(3000);
 
 log.info('Server started\r\n--');

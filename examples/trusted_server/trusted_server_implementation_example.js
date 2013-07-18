@@ -1,7 +1,6 @@
 'use strict';
 
 var util = require('util')
-, httpSignature = require('http-signature')
 , TrustedServer = require('../../').TrustedServer
 , config = require('./trusted_server_config.json')
 ;
@@ -12,15 +11,14 @@ function TrustedServerImplementation(options) {
 util.inherits(TrustedServerImplementation, TrustedServer);
 
 Object.defineProperties(TrustedServerImplementation.prototype, {
-	checkClient: {
-		enumerable: true,
-		value: function(req) {
-			var parsed = httpSignature.parseRequest(req);
-			var pub = config.keys[parsed.keyId];
-			this._log('info', 'client signature provided -- verifying...');
-			return httpSignature.verifySignature(parsed, pub);
-		}
+
+	getSignatureKey: {
+		value: function(keyId) {
+			return config.keys[keyId];
+		},
+		enumerable: true
 	}
+
 });
 
 Object.defineProperties(TrustedServerImplementation, {

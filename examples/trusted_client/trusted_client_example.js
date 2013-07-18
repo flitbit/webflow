@@ -2,6 +2,7 @@
 
 var http = require('http')
 , log = require('winston')
+, util = require('util')
 , config = require('./trusted_client_config.json')
 , TrustedClient = require('../../').TrustedClient
 ;
@@ -17,9 +18,5 @@ var clientOptions = {
 
 var client = new TrustedClient(clientOptions);
 client.get({ path: '' }, function (err, res) {
-	if (err) {
-		console.log('error: '.concat(err));
-	} else {
-		console.log('request successful');
-	}
+	console.log(util.inspect(err || res, false, 10));
 });
