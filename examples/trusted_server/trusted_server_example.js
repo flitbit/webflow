@@ -10,6 +10,7 @@ var options = {
 	log: log
 };
 
+debugger;
 var server = new TrustedServerImplementation(options);
 
 connect()
