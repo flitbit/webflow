@@ -7,14 +7,14 @@
     "extend": ">1.1.0",
     "dbc.js": "1.0.x",
     "request": "~2.22.0",
-    "hooked": "~0.1.3"
+    "hooked": "~0.1.3",
+    "http-signature": "~0.10.0"
   },
   "devDependencies": {
     "expect.js": "0.2.x",
     "mocha": "1.10.x",
     "winston": "~0.7.2",
-    "connect": "~2.8.4",
-    "http-signature": "~0.10.0"
+    "connect": "~2.8.4"
   },
   "scripts": {
     "test": "mocha -R spec"
