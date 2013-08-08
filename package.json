@@ -1,6 +1,6 @@
 {
   "name": "webflow",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Phillip Clark <phillip@flitbit.com>",
   "description": "Utilities for building opinionated HTTP services and RESTful APIs in nodejs.",
   "dependencies": {
